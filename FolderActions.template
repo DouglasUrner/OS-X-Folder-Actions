@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This file is part of the Claymac project
+# Copyright (C) 2009 <sharon.dagan@gmail.com>
+#  
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+# Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+
+LOG=~/Desktop/FolderActions.log
+
+function folder_opened() {
+  FOLDER=$1
+  echo folder ${FOLDER} opened >> ${LOG}
+}
+
+function folder_closed() {
+  FOLDER=$1
+  echo folder ${FOLDER} closed >> ${LOG}
+}
+
+function item_added_to_folder() {
+  FOLDER=$1
+  ITEM=$2
+  echo item ${ITEM} added to folder ${FOLDER} >> ${LOG}
+}
+
+function item_removed_from_folder() {
+  FOLDER=$1
+  ITEM=$2
+  echo item ${ITEM} removed from folder ${FOLDER} >> ${LOG}
+}
