@@ -18,13 +18,15 @@ There are three parts in this solution:
 
 When you attach the Send Events To Shell Script.scpt script to a folder, it will act as an observer and forward the Opening, Closing, Adding and Removing events to the bash script /usr/local/bin/FolderActionsDispatcher.sh. The event payload includes the type of the event, the data needed to perform its purpose (i.e., for the Adding event, the list of the added items), as well as the name of the folder that was the target of the event. FolderActionsDispatcher.sh will parse the event, and then will try to invoke a callback script named .FolderActions.sh in the target folder. All you have to do is write the .FolderActions.sh bash script and place it in the folder it belongs to.
 
+## Installation
+
 Here’s an example. Let’s say that we want to copy every file placed in ~/Downloads to /private/tmp, and do it automatically. Here’s what we will do:
 
-One time setup. Download the program, unarchive and copy Send Events To Shell Script.scpt to ~/Library/Scripts/Folder Action Scripts, Copy FolderActionsDispatcher.sh to /usr/local/bin, and make it world executable, like so:$ chmod a+x /usr/local/bin/FolderActionsDispatcher.sh.
+1. One time setup. Download the program, unarchive and copy Send Events To Shell Script.scpt to ~/Library/Scripts/Folder Action Scripts, Copy FolderActionsDispatcher.sh to /usr/local/bin, and make it world executable, like so:$ chmod a+x /usr/local/bin/FolderActionsDispatcher.sh.
 
-Create the file ~/Downloads/.FolderActions.sh. The file FolderActions.template is a good starting point. Make the new file user executable, like so:$ chmod u+x ~/Downloads/.FolderActions.sh.
+1. Create the file ~/Downloads/.FolderActions.sh. The file FolderActions.template is a good starting point. Make the new file user executable, like so:$ chmod u+x ~/Downloads/.FolderActions.sh.
 
-Edit ~/Downloads/.FolderActions.sh and add the desired code in the item_added_to_folder() function. This callback function will be called by the /usr/local/bin/FolderActionsDispatcher.sh dispatcher script, every time an item (either a file or a folder) is added to the ~/Downloads directory.
+1. Edit ~/Downloads/.FolderActions.sh and add the desired code in the item_added_to_folder() function. This callback function will be called by the /usr/local/bin/FolderActionsDispatcher.sh dispatcher script, every time an item (either a file or a folder) is added to the ~/Downloads directory.
 
 ```sh
 function item_added_to_folder() {
@@ -35,8 +37,8 @@ function item_added_to_folder() {
 }
 ```
 
-Save the modified script.
+1. Save the modified script.
 
-Enable Folder Actions  for ~/Downloads. In the Finder application, select the ~/Downloads folder, bring up the context menu, and select ‘Folder Actions Setup…‘   From the dialog, select the ‘Send Events To Shell Script.scpt‘ action, and click the ‘Attach‘ button.
+1. Enable Folder Actions  for ~/Downloads. In the Finder application, select the ~/Downloads folder, bring up the context menu, and select ‘Folder Actions Setup…‘   From the dialog, select the ‘Send Events To Shell Script.scpt‘ action, and click the ‘Attach‘ button.
 
 That’s it :-) To test it, place a file in ~/Downloads and see that it gets copied to /private/tmp.
