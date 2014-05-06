@@ -22,7 +22,12 @@ When you attach the Send Events To Shell Script.scpt script to a folder, it will
 
 Here’s an example. Let’s say that we want to copy every file placed in ~/Downloads to /private/tmp, and do it automatically. Here’s what we will do:
 
-1. One time setup. Download the program, unarchive and copy Send Events To Shell Script.scpt to ~/Library/Scripts/Folder Action Scripts, Copy FolderActionsDispatcher.sh to /usr/local/bin, and make it world executable, like so:$ chmod a+x /usr/local/bin/FolderActionsDispatcher.sh.
+1. One time setup:
+ 
+   1. Clone this repo.
+   2. Copy **Send Events To Shell Script.scpt** to **~/Library/Scripts/Folder Action Scripts**. 
+   2. Copy **FolderActionsDispatcher.sh** to **/usr/local/bin**.
+   3. Make it world executable, like so: _$ chmod a+x /usr/local/bin/FolderActionsDispatcher.sh_.
 
 1. Create the file ~/Downloads/.FolderActions.sh. The file FolderActions.template is a good starting point. Make the new file user executable, like so:$ chmod u+x ~/Downloads/.FolderActions.sh.
 
