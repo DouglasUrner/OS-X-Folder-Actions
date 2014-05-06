@@ -28,14 +28,14 @@ Here’s an example. Let’s say that we want to copy every file placed in ~/Dow
 
 1. Edit ~/Downloads/.FolderActions.sh and add the desired code in the item_added_to_folder() function. This callback function will be called by the /usr/local/bin/FolderActionsDispatcher.sh dispatcher script, every time an item (either a file or a folder) is added to the ~/Downloads directory.
 
-```sh
-function item_added_to_folder() {
-  FOLDER=$1
-  ITEM=$2
-  # this is what we will do
-  cp ${FOLDER}/${ITEM} /private/tmp
-}
-```
+  ```sh
+  function item_added_to_folder() {
+    FOLDER=$1
+    ITEM=$2
+    # this is what we will do
+    cp ${FOLDER}/${ITEM} /private/tmp
+  }
+  ```
 
 1. Save the modified script.
 
